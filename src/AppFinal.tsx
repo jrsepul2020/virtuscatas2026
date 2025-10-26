@@ -2,7 +2,7 @@
 import { LoginAdapted } from './components/LoginAdapted';
 import { useDeviceAuthAdapted } from './hooks/useDeviceAuthAdapted';
 import UpdateNotification from './components/UpdateNotification';
-import SimpleDashboard from './components/SimpleDashboard';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <UpdateNotification />
-      <SimpleDashboard user={user} onLogout={logout} />
+      <Dashboard user={user} onLogout={logout} />
     </>
   );
 }
