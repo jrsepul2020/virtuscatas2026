@@ -1,6 +1,8 @@
-# Virtus Catas 2026 - Sistema de Login Automático por Tablet
+# 🍷 Virtus International Awards - Catadores 2026
 
-Sistema de catas con autenticación automática basada en reconocimiento de dispositivos tablet.
+## 📱 Progressive Web App for Tablet-Based Wine Tasting
+
+Sistema de login automático para catadores de vino en tablets con funcionalidades PWA completas.
 
 ## 🚀 Características
 
