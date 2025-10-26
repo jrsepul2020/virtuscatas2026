@@ -1,0 +1,16 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="24" fill="#9B8658"/>
+  <g transform="translate(48, 48)">
+    <!-- V central -->
+    <path d="M32 20 L48 72 L64 72 L48 20 Z" fill="white" stroke="white" stroke-width="2"/>
+    <path d="M64 20 L48 72 L80 72 L64 20 Z" fill="white" stroke="white" stroke-width="2"/>
+    
+    <!-- Laureles izquierda -->
+    <path d="M20 30 Q15 25 20 20 Q25 25 20 30 Q15 35 20 40 Q25 35 20 30" fill="white"/>
+    <path d="M24 45 Q19 40 24 35 Q29 40 24 45 Q19 50 24 55 Q29 50 24 45" fill="white"/>
+    
+    <!-- Laureles derecha -->
+    <path d="M76 30 Q81 25 76 20 Q71 25 76 30 Q81 35 76 40 Q71 35 76 30" fill="white"/>
+    <path d="M72 45 Q77 40 72 35 Q67 40 72 45 Q77 50 72 55 Q67 50 72 45" fill="white"/>
+  </g>
+</svg>

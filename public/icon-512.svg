@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="64" fill="#9B8658"/>
+  <g transform="translate(128, 128)">
+    <!-- V central -->
+    <path d="M85 53 L128 192 L171 192 L128 53 Z" fill="white" stroke="white" stroke-width="4"/>
+    <path d="M171 53 L128 192 L213 192 L171 53 Z" fill="white" stroke="white" stroke-width="4"/>
+    
+    <!-- Laureles izquierda -->
+    <path d="M53 80 Q40 67 53 53 Q67 67 53 80 Q40 93 53 107 Q67 93 53 80" fill="white"/>
+    <path d="M64 120 Q51 107 64 93 Q77 107 64 120 Q51 133 64 147 Q77 133 64 120" fill="white"/>
+    <path d="M43 160 Q30 147 43 133 Q57 147 43 160 Q30 173 43 187 Q57 173 43 160" fill="white"/>
+    
+    <!-- Laureles derecha -->
+    <path d="M203 80 Q216 67 203 53 Q189 67 203 80 Q216 93 203 107 Q189 93 203 80" fill="white"/>
+    <path d="M192 120 Q205 107 192 93 Q179 107 192 120 Q205 133 192 147 Q179 133 192 120" fill="white"/>
+    <path d="M213 160 Q226 147 213 133 Q199 147 213 160 Q226 173 213 187 Q199 173 213 160" fill="white"/>
+  </g>
+</svg>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LoginAdapted } from './components/LoginAdapted';
 import { useDeviceAuthAdapted } from './hooks/useDeviceAuthAdapted';
+import UpdateNotification from './components/UpdateNotification';
 import './App.css';
 
 function App() {
@@ -9,7 +10,12 @@ function App() {
 
   // Si no hay usuario logueado o no se ha mostrado la app, mostrar login
   if (!user || !showApp) {
-    return <LoginAdapted onLoginSuccess={() => setShowApp(true)} />;
+    return (
+      <>
+        <UpdateNotification />
+        <LoginAdapted onLoginSuccess={() => setShowApp(true)} />
+      </>
+    );
   }
 
   // Verificar si el usuario es administrador
@@ -18,6 +24,7 @@ function App() {
   // Aplicación principal para catadores logueados
   return (
     <div className="app">
+      <UpdateNotification />
       <header className="app-header">
         <div className="header-content">
           <div className="header-logo">
