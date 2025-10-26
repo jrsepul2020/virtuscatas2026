@@ -56,32 +56,10 @@ export const LoginAdapted: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     );
   }
 
-  // Si ya hay un usuario logueado
+  // Si ya hay un usuario logueado, este componente no debería mostrarse
+  // El AppFinal.tsx se encarga de mostrar directamente el Dashboard
   if (user) {
-    return (
-      <div className="login-container">
-        <div className="login-card success">
-          <div className="user-info">
-            <div className="login-logo">
-              <img src="/logos/virtus-logo-principal.svg" alt="Virtus International Awards" className="logo-login" />
-            </div>
-            <h2>¡Bienvenido de vuelta! 🎉</h2>
-            <div className="user-details">
-              <p><strong>Catador:</strong> {user.nombre}</p>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Mesa:</strong> {user.mesa} - Puesto: {user.puesto}</p>
-              <p><strong>Tablet:</strong> #{user.ntablet}</p>
-            </div>
-            <button 
-              className="btn-primary"
-              onClick={onLoginSuccess}
-            >
-              Acceder al Sistema
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   // Si no se encontró usuario automáticamente

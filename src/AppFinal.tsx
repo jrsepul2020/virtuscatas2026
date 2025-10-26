@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { LoginAdapted } from './components/LoginAdapted';
 import { useDeviceAuthAdapted } from './hooks/useDeviceAuthAdapted';
 import UpdateNotification from './components/UpdateNotification';
@@ -7,19 +7,18 @@ import './App.css';
 
 function App() {
   const { user, logout } = useDeviceAuthAdapted();
-  const [showApp, setShowApp] = useState(false);
 
-  // Si no hay usuario logueado o no se ha mostrado la app, mostrar login
-  if (!user || !showApp) {
+  // Si no hay usuario logueado, mostrar login
+  if (!user) {
     return (
       <>
         <UpdateNotification />
-        <LoginAdapted onLoginSuccess={() => setShowApp(true)} />
+        <LoginAdapted />
       </>
     );
   }
 
-  // Aplicación principal para catadores logueados
+  // Si hay usuario logueado, mostrar dashboard directamente
   return (
     <>
       <UpdateNotification />
