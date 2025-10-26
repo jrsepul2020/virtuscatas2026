@@ -180,6 +180,12 @@ export const useDeviceAuthAdapted = () => {
       setError(null);
 
       try {
+        // Fallback de seguridad: si algo se queda colgado, mostrar login tras 6s
+        const safetyTimeout = setTimeout(() => {
+          console.warn('Auto-login timeout, mostrando login manual');
+          setLoading(false);
+        }, 6000);
+
         // Verificar si hay usuario guardado en localStorage
         const savedUser = localStorage.getItem('virtus_current_user');
         const assignedTablet = localStorage.getItem('virtus_assigned_tablet');
@@ -193,6 +199,7 @@ export const useDeviceAuthAdapted = () => {
           if (currentCatador && currentCatador.email === userData.email) {
             setUser(currentCatador);
             setLoading(false);
+            clearTimeout(safetyTimeout);
             return;
           } else {
             // Limpiar datos obsoletos
@@ -203,6 +210,7 @@ export const useDeviceAuthAdapted = () => {
 
         // Si no hay sesión guardada válida, mostrar login
         setLoading(false);
+        clearTimeout(safetyTimeout);
         
       } catch (err) {
         console.error('Error en auto-login:', err);

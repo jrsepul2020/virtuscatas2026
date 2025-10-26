@@ -24,7 +24,7 @@ const SimpleDashboard: React.FC<SimpleDashboardProps> = ({ user, onLogout }) => 
     <div style={{ 
       padding: '2rem', 
       background: 'white', 
-      minHeight: '100vh',
+      minHeight: '100%',
       fontFamily: 'Arial, sans-serif'
     }}>
       <header style={{

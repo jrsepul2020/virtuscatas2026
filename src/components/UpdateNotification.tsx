@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import './UpdateNotification.css';
 
@@ -28,6 +28,27 @@ const UpdateNotification: React.FC = () => {
       }
     },
   });
+
+  // Auto-cerrar la notificación offline tras unos segundos
+  useEffect(() => {
+    if (offlineReady) {
+      const t = setTimeout(() => {
+        setOfflineReady(false);
+      }, 3500);
+      return () => clearTimeout(t);
+    }
+  }, [offlineReady, setOfflineReady]);
+
+  // Si hay actualización disponible y no se pulsa nada, actualizar automáticamente tras unos segundos
+  useEffect(() => {
+    if (showUpdatePrompt) {
+      const t = setTimeout(() => {
+        updateServiceWorker(true);
+        setShowUpdatePrompt(false);
+      }, 6000);
+      return () => clearTimeout(t);
+    }
+  }, [showUpdatePrompt, updateServiceWorker]);
 
   const updateApp = () => {
     setShowUpdatePrompt(false);
