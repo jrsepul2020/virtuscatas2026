@@ -353,7 +353,7 @@
 }
 
 /* Responsive para login en tablet horizontal */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .login-card {
     max-width: 500px;
     padding: 32px;
