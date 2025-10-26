@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
-  const { user, logout } = useDeviceAuthAdapted();
+  const { user, logout, loading, error, loginByEmail, getTabletId } = useDeviceAuthAdapted();
 
   console.log('App render - User:', user);
 
@@ -16,7 +16,13 @@ function App() {
     return (
       <>
         <UpdateNotification />
-        <LoginAdapted />
+        <LoginAdapted 
+          loading={loading}
+          error={error}
+          user={user}
+          loginByEmail={loginByEmail}
+          getTabletId={getTabletId}
+        />
       </>
     );
   }

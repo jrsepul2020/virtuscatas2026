@@ -1,13 +1,29 @@
 import { useState } from 'react';
-import { useDeviceAuthAdapted } from '../hooks/useDeviceAuthAdapted';
 import './Login.css';
+
+interface User {
+  id: number;
+  email: string;
+  nombre: string;
+  apellidos?: string;
+  mesa?: number;
+  puesto?: number;
+  ntablet: number | string;
+  rol: string;
+  experiencia?: string;
+}
 
 interface LoginProps {
   onLoginSuccess?: () => void;
+  // Props inyectados desde App para evitar doble hook
+  loading: boolean;
+  error: string | null;
+  user: User | null;
+  loginByEmail: (email: string) => Promise<boolean>;
+  getTabletId: () => string;
 }
 
-export const LoginAdapted: React.FC<LoginProps> = ({ onLoginSuccess }) => {
-  const { user, loading, error, loginByEmail, getTabletId } = useDeviceAuthAdapted();
+export const LoginAdapted: React.FC<LoginProps> = ({ onLoginSuccess, loading, error, user, loginByEmail, getTabletId }) => {
   const [email, setEmail] = useState('');
   const [isManualLogin, setIsManualLogin] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);

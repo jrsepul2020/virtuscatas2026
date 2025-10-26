@@ -39,16 +39,7 @@ const UpdateNotification: React.FC = () => {
     }
   }, [offlineReady, setOfflineReady]);
 
-  // Si hay actualización disponible y no se pulsa nada, actualizar automáticamente tras unos segundos
-  useEffect(() => {
-    if (showUpdatePrompt) {
-      const t = setTimeout(() => {
-        updateServiceWorker(true);
-        setShowUpdatePrompt(false);
-      }, 6000);
-      return () => clearTimeout(t);
-    }
-  }, [showUpdatePrompt, updateServiceWorker]);
+  // Evitar auto-actualización silenciosa para no interrumpir la sesión
 
   const updateApp = () => {
     setShowUpdatePrompt(false);
