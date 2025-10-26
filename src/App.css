@@ -1,6 +1,6 @@
 .app {
   width: 1024px;
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #F5F3F0 0%, #EAE7E2 50%, #E0DCD5 100%);
@@ -127,7 +127,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   height: 100%;
-  max-height: calc(600px - 64px - 40px); /* altura total - header - padding */
+  max-height: calc(650px - 64px - 40px); /* altura total - header - padding */
 }
 
 .dashboard-title {
@@ -266,8 +266,8 @@
   font-style: italic;
 }
 
-/* Diseño específico para tablet horizontal 1024x600 */
-@media (max-width: 1024px) or (max-height: 600px) {
+/* Diseño específico para tablet horizontal 1024x650 */
+@media (max-width: 1024px) or (max-height: 650px) {
   .dashboard {
     grid-template-columns: 1fr;
     gap: 16px;

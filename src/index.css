@@ -55,7 +55,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 1024px;
-  height: 600px;
+  height: 650px;
   overflow: hidden;
   background: linear-gradient(135deg, #F5F3F0 0%, #EAE7E2 50%, #E0DCD5 100%);
 }
@@ -86,7 +86,7 @@ html, body {
 
 #root {
   width: 1024px;
-  height: 600px;
+  height: 650px;
   margin: 0;
   padding: 0;
   display: flex;
