@@ -22,6 +22,7 @@ interface DashboardProps {
 type ActiveSection = 'home' | 'catas' | 'profile' | 'history';
 
 const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
+  console.log('Dashboard render - User:', user);
   const [activeSection, setActiveSection] = useState<ActiveSection>('home');
   const isAdmin = user.rol === 'admin';
 
