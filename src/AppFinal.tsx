@@ -2,7 +2,6 @@
 import { LoginAdapted } from './components/LoginAdapted';
 import { useDeviceAuthAdapted } from './hooks/useDeviceAuthAdapted';
 import UpdateNotification from './components/UpdateNotification';
-import Dashboard from './components/Dashboard';
 import SimpleDashboard from './components/SimpleDashboard';
 import './App.css';
 
