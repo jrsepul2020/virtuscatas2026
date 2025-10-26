@@ -21,6 +21,7 @@ interface DeviceInfo {
 
 export const useDeviceAuthAdapted = () => {
   const [loading, setLoading] = useState(true);
+  const [busy, setBusy] = useState(false);
   const [user, setUser] = useState<Catador | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -116,6 +117,7 @@ export const useDeviceAuthAdapted = () => {
     getTabletId(); // Asegurar que se genere y guarde la huella digital
     
     try {
+      setBusy(true);
       // Buscar catador por email
       const catador = await findCatadorByEmail(email);
       
@@ -147,9 +149,13 @@ export const useDeviceAuthAdapted = () => {
       localStorage.setItem('virtus_assigned_tablet', catador.ntablet.toString());
       
       return true;
+      return true;
     } catch (err) {
       console.error('Error en asignación:', err);
       return false;
+    }
+    finally {
+      setBusy(false);
     }
   };
 
@@ -157,12 +163,15 @@ export const useDeviceAuthAdapted = () => {
   const loginByEmail = async (email: string): Promise<boolean> => {
     try {
       setError(null);
+      setBusy(true);
       const success = await assignTabletToCatador(email);
       return success;
     } catch (err) {
       console.error('Error en login:', err);
       setError('Error al iniciar sesión');
       return false;
+    } finally {
+      setBusy(false);
     }
   };
 
@@ -177,6 +186,7 @@ export const useDeviceAuthAdapted = () => {
   useEffect(() => {
     const autoLogin = async () => {
       setLoading(true);
+      setBusy(true);
       setError(null);
 
       try {
@@ -199,6 +209,8 @@ export const useDeviceAuthAdapted = () => {
           if (currentCatador && currentCatador.email === userData.email) {
             setUser(currentCatador);
             setLoading(false);
+            setLoading(false);
+            setBusy(false);
             clearTimeout(safetyTimeout);
             return;
           } else {
@@ -211,11 +223,14 @@ export const useDeviceAuthAdapted = () => {
         // Si no hay sesión guardada válida, mostrar login
         setLoading(false);
         clearTimeout(safetyTimeout);
+        setLoading(false);
+        setBusy(false);
         
       } catch (err) {
         console.error('Error en auto-login:', err);
         setError('Error al verificar usuario');
         setLoading(false);
+        setBusy(false);
       }
     };
 
@@ -234,6 +249,7 @@ export const useDeviceAuthAdapted = () => {
   return {
     user,
     loading,
+    busy,
     error,
     loginByEmail,
     logout,

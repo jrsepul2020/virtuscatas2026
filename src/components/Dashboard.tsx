@@ -17,11 +17,12 @@ interface User {
 interface DashboardProps {
   user: User;
   onLogout: () => void;
+  busy?: boolean;
 }
 
 type ActiveSection = 'home' | 'catas' | 'profile' | 'history';
 
-const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
+const Dashboard: React.FC<DashboardProps> = ({ user, onLogout, busy }) => {
   console.log('Dashboard render - User:', user);
   const [activeSection, setActiveSection] = useState<ActiveSection>('home');
   const isAdmin = user.rol === 'admin';
@@ -308,6 +309,11 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             </button>
           </div>
         </div>
+        {busy ? (
+          <div className="header-progress" aria-hidden="true">
+            <div className="progress-bar" />
+          </div>
+        ) : null}
       </header>
 
       {/* Navigation */}

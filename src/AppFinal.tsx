@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
-  const { user, logout, loading, error, loginByEmail, getTabletId } = useDeviceAuthAdapted();
+  const { user, logout, loading, busy, error, loginByEmail, getTabletId } = useDeviceAuthAdapted();
 
   console.log('App render - User:', user);
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <>
       <UpdateNotification />
-      <Dashboard user={user} onLogout={logout} />
+      <Dashboard user={user} onLogout={logout} busy={busy} />
     </>
   );
 }
